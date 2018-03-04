@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "<Ui xmlns=\"http://www.blizzard.com/wow/ui\">" > $1
+
+for i in *.lua; do echo "    <Script file=\"$i\"/>" >> $1; done
+
+echo "</Ui>" >> $1
+

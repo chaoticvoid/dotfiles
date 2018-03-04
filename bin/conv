@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+ext=ARGV.first
+
+Dir["./*.#{ext}"].each { |f| system("HandBrakeCLI -i \"#{f}\" -o \"#{f.sub("#{ext}","m4v")}\" --preset=\"AppleTV3\"") }

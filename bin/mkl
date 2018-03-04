@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm -rf "$ADDONS/$1"
+ln -sv ~/Projects/$1 "$ADDONS"

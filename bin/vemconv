@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+# VEM Conversion of DBM modules
+require 'fileutils'
+
+dir_names = ARGV
+dir_names.each do |dir_name|
+    if File.exists?("VEM-#{dir_name}") then
+        FileUtils.remove_dir("VEM-#{dir_name}");
+    end
+    FileUtils.cp_r("DBM-#{dir_name}", "VEM-#{dir_name}")
+    File.rename("VEM-#{dir_name}/DBM-#{dir_name}.toc", "VEM-#{dir_name}/VEM-#{dir_name}.toc")
+    Dir.glob("VEM-#{dir_name}/**/*").each do |file_name|
+    	if File.file?(file_name) then
+	        text = File.read(file_name)
+
+	    	new_contents = text.gsub("DBM", "VEM");
+
+        	File.open(file_name, "w") { |file| file.puts new_contents }
+        end
+    end
+end

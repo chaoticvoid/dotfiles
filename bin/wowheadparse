@@ -1,0 +1,2 @@
+#!/bin/bash
+echo `grep -E '_\[[0-9]+\]=' -h -o "${1:-/dev/stdin}" | grep -E '[0-9]+' -o | sort | uniq | awk '{ if($1 != "") { if (NR==1) { printf $1 } else { printf "," $1 } } }'`

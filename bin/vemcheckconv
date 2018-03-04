@@ -1,0 +1,18 @@
+#!/bin/sh
+
+cd /Users/mtindal/Projects/DBM
+
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse @{u})
+BASE=$(git merge-base @ @{u})
+
+PATHS_TO_CONVERT=(BlackrockFoundry Brawlers DMF Draenor Highmaul Party-WoD)
+if [ $LOCAL = $BASE -o -o force ]; then
+	git pull;
+	for p in ${PATHS_TO_CONVERT[@]}; do
+		vemconv $p;
+		rm -rf "$ADDONS/VEM-$p"
+		cp -r "VEM-$p" "$ADDONS"
+	done
+fi
+	

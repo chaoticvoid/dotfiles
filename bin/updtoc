@@ -1,0 +1,10 @@
+#!/bin/bash
+
+pushd ~/Projects;
+
+for i in ChatTextures ElvUI_PartyXP ElvUI ElvUI_ActionbarCombatState ElvUI_ButtonStyle ElvUI_Config ElvUI_Currency ElvUI_CustomXP ElvUI_EnhancedNameplateAuras ElvUI_EnhancedShadows ElvUI_ExpRepWatcher ElvUI_Exp_Rep_Recolor ElvUI_HyperDT ElvUI_InvertedShadows ElvUI_Reminder ElvUI_VerticalUnitFrames EnhancedFriendsList EnhancedPetBattleUI KitChat OzCooldowns; do
+	pushd $i;
+	mv $i.toc{,.bak}
+	cat $i.toc | sed "1 s/^.*$/Interface: $1/g" > $i.toc
+	popd;
+done

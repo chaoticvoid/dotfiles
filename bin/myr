@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "git+ssh://git@github.com/shadowphoenix/$1.git"

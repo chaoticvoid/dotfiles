@@ -1,0 +1,5 @@
+#!/bin/bash
+
+my_name=$1
+
+zip -r $my_name-$2.zip $my_name -x "$my_name/*sublime*" -x "$my_name/.git/*" -x "$my_name/releases/*" -x "$my_name/.gitignore" -x "$my_name/.DS_Store" -x "$my_name/.hg/*" -x "$my_name/.hgignore"

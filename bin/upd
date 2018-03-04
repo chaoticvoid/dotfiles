@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+ME=${PWD##*/}
+
+DIRS=(".")
+
+if [[ $ME == "Altohlic_CountHider" || $ME == "ElvUI_SLE" || $ME == "ElvUI_ActionbarCombatState" ]]; then
+    DIRS=("$ME")
+elif [[ $ME == "ElvUI_NenaUI" || $ME == "ElvUI" ]]; then
+    DIRS=("$ME" "${ME}_Config")
+elif [[ $ME == "ElvUI_ChatTweaks" ]]; then
+    DIRS=("$ME" "${ME}_Debug" "${ME}_Extra" "${ME}_Spam")
+fi
+
+for i in "${DIRS[@]}"; do
+    if [[ "$i" == "." ]]; then
+        rm -rf ~/wow-addons/$ME
+	echo "Copying $ME..."
+	cp -r ~/wow-addons-dev/$ME!(.git) ~/wow-addons
+	echo "Finished copying $ME."
+    else
+	echo "Copying $i..."
+        rm -rf ~/wow-addons/$i
+        cp -r ~/wow-addons-dev/$ME/$i ~/wow-addons
+	echo "Finished copying $i."
+    fi
+done

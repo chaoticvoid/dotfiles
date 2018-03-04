@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "[paths]" > .hg/hgrc
+echo "default = `myr $1`" >> .hg/hgrc
+

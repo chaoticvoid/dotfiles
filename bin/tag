@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require 'trollop'
+
+opts = Trollop::options do
+	opt :show, "The show name", :type => :string
+	opt :season, "The season number", :type => :int
+	opt :regex, "Regular expression to get", :type => :string
+	opt :epproc, "Define a method proc to take the episode number and process it", :default => ""
+end
+
+# regex should have ep (episode #) and name (episode name) captures
+
+regex = Regexp.new opts[:regex]
+show = opts[:show]
+season = opts[:season]
+
+epproc = false
+if opts[:epproc] != "" then
+	eval(opts[:epproc]);
+	epproc = true
+end
+
+Dir["./*.m4v"].each { |f|
+	f.sub("./","") =~ regex
+	m = Hash[$~.names.collect{|x| [x.to_sym, $~[x]]}]
+	if (epproc) then
+		m[:ep] = proc(m[:ep].to_i)
+	end
+	system("AtomicParsley \"#{f}\" --stik \"TV Show\" --artist \"#{show}\" --title \"#{m[:name]}\" --TVShowName \"#{show}\" --TVEpisodeNum #{m[:ep]} --TVSeasonNum #{season}")
+}

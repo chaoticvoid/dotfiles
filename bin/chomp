@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo $1 | sed -e 's@^\?.*@@g' -e 's@^\!.*@@g' -e '/^$/d' | egrep -o '[^ ]*(/.*)?$' | sed -e 's@^\..*@@'  -e 's@.*ChangeLog@@g' -e '/^$/d' -e 's@^\./@@g'

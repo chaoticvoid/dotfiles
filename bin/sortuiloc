@@ -1,0 +1,7 @@
+#!/bin/bash
+
+files=( ~/bin/templates/locales/*.lua )
+for file in "${files[@]}"; do
+	filename="${file##*/}"
+	cat template >> /cygdrive/d/Documents/WoWStuff/ElvUI_SortUI/locales/$filename;
+done

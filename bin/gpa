@@ -1,0 +1,3 @@
+#!/bin/bash
+
+for i in AddOnSkins ElvUI ElvUI_SLE iFilger OzCooldowns ProjectAzilroka xCT+; do (cd ~/wow-addons-dev/ && git pull); done

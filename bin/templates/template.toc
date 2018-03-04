@@ -1,0 +1,11 @@
+## Interface: 60000
+## Title: |cff1784d1ElvUI |r#title#
+## Author: Sortokk
+## Version: 1.0
+## Notes: #desc#
+## OptionalDeps: ElvUI
+
+locales\load_locales.xml
+#file#.lua
+profile.lua
+options.lua

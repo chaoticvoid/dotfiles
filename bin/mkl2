@@ -1,0 +1,5 @@
+#!/bin/bash
+
+dir=$(basename $1)
+rm -rf "$ADDONS/$dir"
+ln -sv ~/Projects/$1 "$ADDONS/$dir"

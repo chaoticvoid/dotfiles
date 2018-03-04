@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [[ -n $(md5deep -x ~/.addons_hash -r "$ADDONS") ]] || [[ -n $(md5deep -nm ~/.addons_hash -r "$ADDONS") ]]; then
+	echo "Generating new zip, please be patient."
+	rm -rf ~/tmp
+	mkdir ~/tmp
+	echo "Copying Interface..."
+	cp -r "$WOW/Interface" ~/tmp
+	echo "Finished copying."
+	if [[ $1 == "--wtf" ]]; then
+		echo "Copying WTF..."
+		cp -r "$WTF" ~/tmp
+		echo "Finished copying."
+	fi
+	rm -rf ~/WoWStuff.zip
+	echo "Creating zip now."
+	(cd ~/tmp; zip -r ~/WoWStuff.zip . -x "./**/*sublime*" -x "./**/.git/*" -x "./**/releases/*" -x "./**/.gitignore" -x "./**/.DS_Store" -x "./**.hg/*" -x "./**/.hgignore" -x "./**/*.orig" > /dev/null)
+	echo "Finished."
+	rm -f /Volumes/LaCie/Users/mtindal/Library/Mobile\ Documents/com\~apple\~CloudDocs/WoWStuff/Last\ Touched*
+	rm -f /Volumes/LaCie/Users/mtindal/Library/Mobile\ Documents/com\~apple\~CloudDocs/WoWStuff/WoWStuff.zip
+	mv -v ~/WowStuff.zip /Volumes/LaCie/Users/mtindal/Library/Mobile\ Documents/com\~apple\~CloudDocs/WoWStuff
+	touch "/Volumes/LaCie/Users/mtindal/Library/Mobile Documents/com~apple~CloudDocs/WoWStuff/Last Touched `date`"
+	rm -rf ~/tmp
+	md5deep -r "$ADDONS" > ~/.addons_hash
+	echo "New zip generated and moved."
+else
+	echo "No changes detected."
+fi

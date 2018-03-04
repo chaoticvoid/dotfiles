@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp -rv ~/bin/templates/locales .
+for i in locales/*.lua; do cat template >> $i; done
+rm -v template

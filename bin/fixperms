@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -d ".hg" ]; then
+	hg revert .
+else
+	git reset --hard
+fi
+find . -name '*.orig' -exec rm -f {} \;
+

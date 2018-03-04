@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mono ~/s3pe/s3pe.exe

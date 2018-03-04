@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir ~/tmp
+cp -rv "$WOW/Interface" ~/tmp
+cp -rv "$WTF" ~/tmp
+

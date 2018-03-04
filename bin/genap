@@ -1,0 +1,2 @@
+grep -E '"id":[0-9]+' -h -o artifactpower*.html | grep -E '[0-9]+' -o > ./artifactpoweritems
+awk '{print $1}' < ./artifactpoweritems | paste -s -d, - > ./artifactpowerstring

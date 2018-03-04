@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+cd ~/Projects/$1
+hg pull; hg update

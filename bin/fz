@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+ext1 = ARGV.shift
+ext2 = ARGV.shift
+
+count1 = 0
+count2 = 0
+Dir["./*.#{ext1}"].each { |f| count1 = count1 + 1; }
+Dir["./*.#{ext2}"].each { |f| count2 = count2 + 1; }
+
+p "#{ext1}: #{count1}"
+p "#{ext2}: #{count2}"
+p "Difference: #{count2 - count1}"
+

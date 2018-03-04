@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cp -v ~/.GemRB/$1.cfg ~/.GemRB/GemRB.cfg
+open /Applications/GemRB.app

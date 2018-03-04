@@ -1,0 +1,11 @@
+#!/bin/bash
+
+upa ElvUI
+upa ElvUI_SLE
+upa AddOnSkins
+upa ElvUI_Currency
+upa EnhancedPetBattleUI
+upa EnhancedFriendsList
+upa OzCooldowns
+upa DragonOverlay
+upa ncCooldownFlash
