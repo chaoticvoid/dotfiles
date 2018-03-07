@@ -5,7 +5,7 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle ruby
 antigen bundle gem
-antigen bundle rails
+antigen bundle rails3
 antigen bundle python
 antigen bundle rake
 antigen bundle rvm
