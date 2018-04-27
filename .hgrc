@@ -1,0 +1,47 @@
+[extensions]
+hgext.bookmarks =
+hgext.convert =
+hgext.rebase =
+hgext.record =
+hgext.fetch =
+hgext.histedit =
+hgext.shelve =
+hgext.transplant =
+hgext.color =
+hgext.gpg =
+hgext.share =
+hgext.schemes =
+hgext.relink =
+hgext.purge =
+hgext.progress =
+hgext.mq =
+hgext.localbranch = ~/mercurial-extensions/mercurial-extensions-localbranch/localbranch.py
+hgext.bugtrack = ~/mercurial-extensions/mercurial-bugtracker-extension/bugtracker
+hgext.extdiff =
+hggit =
+
+[schemes]
+bb = ssh://hg@bitbucket.org/chaoticvoid/
+tka = git+ssh://git@git.tukui.org:Azilroka/
+tke = git+ssh://git@git.tukui.org:Elv/
+tkr = git+ssh://git@git.tukui.org:repooc/
+tkc = git+ssh://git@git.tukui.org:ChaoticVoid/
+tkd = git+ssh://git@git.tukui.org:Darth_Predator/
+gh = git+ssh://git@github.com:
+ghc = git+ssh://git@github.com:chaoticvoid/
+
+[bookmarks]
+track.current = True
+
+[alias]
+nudge = push --rev .
+
+[gpg]
+key=EB87653D
+
+[ui]
+username = Michael Tindal <mj.tindal@gmail.com>
+
+[hggit]
+intree = True
+
